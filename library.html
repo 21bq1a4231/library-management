@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+
+    <form id="addBookForm">
+        <label for="bookTitle">Book Title:</label>
+        <input type="text" id="bookTitle" required>
+        <label for="author">Author:</label>
+        <input type="text" id="author" required>
+        <button type="button" onclick="addBook()">Add Book</button>
+    </form>
+
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Book details will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        function addBook() {
+            // Get input values
+            var title = document.getElementById('bookTitle').value;
+            var author = document.getElementById('author').value;
+
+            // Create a new row
+            var table = document.getElementById('bookTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+
+            // Insert cells into the row
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+
+            // Set the cell values
+            cell1.innerHTML = title;
+            cell2.innerHTML = author;
+
+            // Clear the input fields
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('author').value = '';
+        }
+    </script>
+</body>
+</html>
